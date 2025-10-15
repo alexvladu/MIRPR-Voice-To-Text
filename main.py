@@ -1,7 +1,3 @@
-from fastapi import FastAPI
-
-app = FastAPI()
-
 from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 import shutil
