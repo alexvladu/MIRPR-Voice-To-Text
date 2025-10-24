@@ -1,3 +1,4 @@
+# ===== API Framework =====
 annotated-types==0.7.0
 anyio==4.11.0
 click==8.3.0
@@ -13,3 +14,28 @@ starlette==0.48.0
 typing-inspection==0.4.2
 typing_extensions==4.15.0
 uvicorn==0.37.0
+nest-asyncio
+
+# ===== ML/NLP Libraries =====
+transformers>=4.30.0
+torch>=2.0.0
+torchaudio>=2.0.0
+soundfile
+librosa
+
+# ===== Hugging Face Ecosystem =====
+datasets>=2.14.0
+evaluate>=0.4.0
+accelerate>=0.20.0
+seqeval
+
+# ===== Document Generation =====
+python-docx>=0.8.11
+docxtpl>=0.16.0
+
+# ===== Data Processing =====
+jsonschema>=4.17.0
+inflect
+
+# ===== FHIR Support (Optional) =====
+# fhir.resources>=7.0.0  # Decomentează dacă vrei validare FHIR completă
