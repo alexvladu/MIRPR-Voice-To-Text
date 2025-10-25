@@ -1,7 +1,7 @@
 """
-Extractor de Entități Medicale pentru Transcripții în Limba Română
-Folosește pattern matching și reguli pentru a extrage date structurate din transcripții medicale
-până la implementarea unui model NER fine-tuned pe date medicale.
+Extractor de Entitati Medicale pentru Transcriptii în Limba Română
+Foloseste pattern matching si reguli pentru a extrage date structurate din transcriptii medicale
+pana la implementarea unui model NER fine-tuned pe date medicale.
 """
 
 import re
@@ -19,7 +19,6 @@ class MasuratoareEcografica:
 
 @dataclass
 class FisaPacient:
-    """Structură pentru fișa pacientului - compatibil cu FHIR"""
     masuratori_ecografice: List[Dict[str, Any]]
     simptome: List[str]
     diagnostice: List[str]
@@ -27,7 +26,6 @@ class FisaPacient:
     observatii: List[str]
 
 class MedicalEntityExtractor:
-    """Extractor de entități medicale din transcripții în limba română"""
 
     def __init__(self):
         # Dicționar pentru conversia numerelor în cifre
@@ -73,7 +71,6 @@ class MedicalEntityExtractor:
         ]
 
     def text_to_number(self, text: str) -> float:
-        """Convertește un număr scris în text în cifră"""
         text = text.lower().strip()
 
         # Verifică dacă este deja un număr
@@ -99,10 +96,6 @@ class MedicalEntityExtractor:
         return None
 
     def extract_masuratori_ecografice(self, text: str) -> List[Dict[str, Any]]:
-        """
-        Extrage măsurătorile ecografice din text.
-        Pattern: "structura anatomică, valoare numerică" sau "structura anatomică: valoare"
-        """
         masuratori = []
 
         # Normalizare text
@@ -133,7 +126,6 @@ class MedicalEntityExtractor:
         return masuratori
 
     def extract_medicamente(self, text: str) -> List[Dict[str, str]]:
-        """Extrage medicamentele și dozajele din text"""
         medicamente = []
         text_norm = text.lower()
 
@@ -154,7 +146,6 @@ class MedicalEntityExtractor:
         return medicamente
 
     def extract_simptome(self, text: str) -> List[str]:
-        """Extrage simptomele menționate în text"""
         simptome = []
         text_norm = text.lower()
 
@@ -165,7 +156,6 @@ class MedicalEntityExtractor:
         return simptome
 
     def extract_diagnostice(self, text: str) -> List[str]:
-        """Extrage diagnosticele din text"""
         diagnostice = []
         text_norm = text.lower()
 
@@ -180,8 +170,6 @@ class MedicalEntityExtractor:
         return diagnostice
 
     def extract_all_entities(self, text: str) -> FisaPacient:
-        """Extrage toate entitățile medicale din text"""
-
         masuratori = self.extract_masuratori_ecografice(text)
         simptome = self.extract_simptome(text)
         diagnostice = self.extract_diagnostice(text)
@@ -190,7 +178,7 @@ class MedicalEntityExtractor:
         # Observații generale (restul textului care nu s-a potrivit)
         observatii = []
         if not masuratori and not simptome and not diagnostice:
-            observatii.append("Text neprocesabil - necesită revizuire manuală")
+            observatii.append("Text neprocesabil - necesita revizuire manuala")
 
         return FisaPacient(
             masuratori_ecografice=masuratori,
@@ -201,10 +189,6 @@ class MedicalEntityExtractor:
         )
 
     def to_fhir_observation(self, masuratori: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """
-        Convertește măsurătorile în format FHIR Observation
-        Conform standardului HL7 FHIR R4
-        """
         fhir_observations = []
 
         for i, masurare in enumerate(masuratori):
@@ -243,7 +227,6 @@ class MedicalEntityExtractor:
         return fhir_observations
 
     def to_json(self, fisa_pacient: FisaPacient, pretty: bool = True) -> str:
-        """Convertește fișa pacientului în JSON"""
         data = asdict(fisa_pacient)
 
         # Adaugă și format FHIR
@@ -254,21 +237,20 @@ class MedicalEntityExtractor:
         return json.dumps(data, ensure_ascii=False)
 
     def save_to_json(self, fisa_pacient: FisaPacient, filepath: str):
-        """Salvează fișa pacientului în fișier JSON"""
         json_data = self.to_json(fisa_pacient)
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(json_data)
-        print(f"✅ Fișa pacientului salvată în: {filepath}")
+        print(f"Fisa pacientului salvata in: {filepath}")
 
 
 # Funcție helper pentru testare rapidă
 def process_medical_transcription(transcription: str, output_path: str = None) -> Dict:
     """
-    Procesează o transcriere medicală și returnează datele structurate
+    Proceseaza o transcriere medicala si returneaza datele structurate
 
     Args:
         transcription: Textul transcris
-        output_path: Calea unde să salveze JSON-ul (opțional)
+        output_path: Calea unde să salveze JSON-ul (optional)
 
     Returns:
         Dict cu datele extrase
@@ -293,7 +275,7 @@ if __name__ == "__main__":
     """
 
     print("=" * 80)
-    print("EXTRACȚIE ENTITĂȚI MEDICALE - TEST")
+    print("EXTRACTIE ENTITATI MEDICALE - TEST")
     print("=" * 80)
 
     result = process_medical_transcription(
@@ -301,10 +283,10 @@ if __name__ == "__main__":
         output_path="fisa_pacient_medical_structured.json"
     )
 
-    print("\n📊 REZULTAT EXTRACȚIE:\n")
+    print("\nREZULTAT EXTRACTIE:\n")
     print(json.dumps(result, indent=2, ensure_ascii=False))
 
     print("\n" + "=" * 80)
-    print("✅ Procesare completă!")
+    print("Procesare completă!")
     print("=" * 80)
 

@@ -1,6 +1,6 @@
 """
-Generator de Rapoarte Word pentru Fișa Pacientului
-Folosește python-docx-template (docxtpl) pentru a genera rapoarte formatate
+Generator de Rapoarte Word pentru Fisa Pacientului
+Foloseste python-docx-template (docxtpl) pentru a genera rapoarte formatate
 din datele JSON structurate extrase din transcripții medicale.
 """
 
@@ -15,41 +15,41 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 
 
 class MedicalReportGenerator:
-    """Generator de rapoarte Word pentru fișa pacientului"""
+    """Generator de rapoarte Word pentru fisa pacientului"""
 
     def __init__(self, template_path: str = None):
         """
-        Inițializează generatorul de rapoarte
+        Inițializeaza generatorul de rapoarte
 
         Args:
-            template_path: Calea către șablonul Word (opțional)
+            template_path: Calea catre sablonul Word (opțional)
         """
         self.template_path = template_path
 
     def load_json_data(self, json_path: str) -> Dict[str, Any]:
-        """Încarcă datele din fișierul JSON"""
+        """incarca datele din fisierul JSON"""
         with open(json_path, 'r', encoding='utf-8') as f:
             return json.load(f)
 
     def create_simple_report_without_template(self, json_path: str, output_path: str):
         """
-        Creează un raport Word simplu fără șablon (folosind python-docx)
-        Util când nu ai un șablon predefinit
+        Creeaza un raport Word simplu fara sablon (folosind python-docx)
+        Util cand nu ai un sablon predefinit
         """
-        # Încarcă datele
+        # incarca datele
         data = self.load_json_data(json_path)
 
-        # Creează un document nou
+        # Creeaza un document nou
         doc = Document()
 
-        # Adaugă header
+        # Adauga header
         header = doc.sections[0].header
         header_para = header.paragraphs[0]
-        header_para.text = "RAPORT MEDICAL - ECOGRAFIE CARDIACĂ"
+        header_para.text = "RAPORT MEDICAL - ECOGRAFIE CARDIACa"
         header_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
         # Titlu
-        title = doc.add_heading('FIȘA PACIENTULUI', 0)
+        title = doc.add_heading('FIsA PACIENTULUI', 0)
         title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
         # Informații generale
@@ -61,33 +61,33 @@ class MedicalReportGenerator:
         info_table.rows[0].cells[0].text = 'Data raportului:'
         info_table.rows[0].cells[1].text = datetime.now().strftime("%d.%m.%Y %H:%M")
         info_table.rows[1].cells[0].text = 'Tip investigație:'
-        info_table.rows[1].cells[1].text = 'Ecografie cardiacă'
+        info_table.rows[1].cells[1].text = 'Ecografie cardiaca'
 
-        # Măsurători ecografice
-        doc.add_heading('Măsurători Ecografice', level=1)
+        # Masuratori ecografice
+        doc.add_heading('Masuratori Ecografice', level=1)
 
         if data.get('masuratori_ecografice'):
-            # Creează tabel pentru măsurători
+            # Creeaza tabel pentru masuratori
             masuratori_table = doc.add_table(rows=1, cols=3)
             masuratori_table.style = 'Light Grid Accent 1'
 
             # Header tabel
             hdr_cells = masuratori_table.rows[0].cells
-            hdr_cells[0].text = 'Structură Anatomică'
+            hdr_cells[0].text = 'Structura Anatomica'
             hdr_cells[1].text = 'Valoare'
             hdr_cells[2].text = 'Unitate'
 
-            # Adaugă măsurătorile
+            # Adauga masuratorile
             for masurare in data['masuratori_ecografice']:
                 row_cells = masuratori_table.add_row().cells
                 row_cells[0].text = masurare['structura_anatomica'].capitalize()
                 row_cells[1].text = str(masurare['valoare_numerica'])
                 row_cells[2].text = masurare['unitate_masura']
         else:
-            doc.add_paragraph('Nu au fost identificate măsurători ecografice.')
+            doc.add_paragraph('Nu au fost identificate masuratori ecografice.')
 
         # Medicamente
-        doc.add_heading('Medicație Prescrisă', level=1)
+        doc.add_heading('Medicație Prescrisa', level=1)
 
         if data.get('medicamente'):
             for med in data['medicamente']:
@@ -126,25 +126,25 @@ class MedicalReportGenerator:
         footer_para = doc.add_paragraph()
         footer_para.add_run('___________________________').italic = True
         footer_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        footer_para = doc.add_paragraph('Semnătura medicului')
+        footer_para = doc.add_paragraph('Semnatura medicului')
         footer_para.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
-        # Salvează documentul
+        # Salveaza documentul
         doc.save(output_path)
         print(f"✅ Raport Word generat cu succes: {output_path}")
 
     def create_report_with_template(self, json_path: str, template_path: str, output_path: str):
         """
-        Creează un raport Word folosind un șablon existent (cu docxtpl)
-        Șablonul trebuie să conțină variabile Jinja2
+        Creeaza un raport Word folosind un sablon existent (cu docxtpl)
+        sablonul trebuie sa conțina variabile Jinja2
         """
-        # Încarcă datele
+        # incarca datele
         data = self.load_json_data(json_path)
 
-        # Încarcă șablonul
+        # incarca sablonul
         doc = DocxTemplate(template_path)
 
-        # Pregătește contextul pentru șablon
+        # Pregateste contextul pentru sablon
         context = {
             'data_raport': datetime.now().strftime("%d.%m.%Y"),
             'ora_raport': datetime.now().strftime("%H:%M"),
@@ -159,37 +159,37 @@ class MedicalReportGenerator:
             'are_diagnostice': len(data.get('diagnostice', [])) > 0
         }
 
-        # Renderizează șablonul cu datele
+        # Renderizeaza sablonul cu datele
         doc.render(context)
 
-        # Salvează documentul
+        # Salveaza documentul
         doc.save(output_path)
-        print(f"✅ Raport Word generat din șablon: {output_path}")
+        print(f"✅ Raport Word generat din sablon: {output_path}")
 
     def create_template(self, output_path: str = "template_fisa_pacient.docx"):
         """
-        Creează un șablon Word de bază cu variabile Jinja2
+        Creeaza un sablon Word de baza cu variabile Jinja2
         pentru a fi folosit cu docxtpl
         """
         doc = Document()
 
         # Titlu
-        title = doc.add_heading('FIȘA PACIENTULUI', 0)
+        title = doc.add_heading('FIsA PACIENTULUI', 0)
         title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
         # Informații generale
         doc.add_heading('Informații Generale', level=1)
         doc.add_paragraph('Data raportului: {{ data_raport }} {{ ora_raport }}')
-        doc.add_paragraph('Tip investigație: Ecografie cardiacă')
+        doc.add_paragraph('Tip investigație: Ecografie cardiaca')
 
-        # Măsurători
-        doc.add_heading('Măsurători Ecografice', level=1)
+        # Masuratori
+        doc.add_heading('Masuratori Ecografice', level=1)
         doc.add_paragraph('{% if are_masuratori %}')
         doc.add_paragraph('{% for masurare in masuratori %}')
         doc.add_paragraph('• {{ masurare.structura_anatomica }}: {{ masurare.valoare_numerica }} {{ masurare.unitate_masura }}')
         doc.add_paragraph('{% endfor %}')
         doc.add_paragraph('{% else %}')
-        doc.add_paragraph('Nu au fost identificate măsurători.')
+        doc.add_paragraph('Nu au fost identificate masuratori.')
         doc.add_paragraph('{% endif %}')
 
         # Medicamente
@@ -225,22 +225,22 @@ class MedicalReportGenerator:
         # Footer
         doc.add_paragraph()
         doc.add_paragraph('___________________________')
-        doc.add_paragraph('Semnătura medicului')
+        doc.add_paragraph('Semnatura medicului')
 
         doc.save(output_path)
-        print(f"✅ Șablon creat: {output_path}")
-        print(f"💡 Poți edita acest șablon în Word și apoi îl poți folosi cu create_report_with_template()")
+        print(f"✅ sablon creat: {output_path}")
+        print(f"💡 Poți edita acest sablon in Word si apoi il poți folosi cu create_report_with_template()")
 
 
 def generate_word_report(json_path: str, output_path: str = None, use_template: bool = False, template_path: str = None):
     """
-    Funcție helper pentru generarea rapidă a raportului Word
+    Funcție helper pentru generarea rapida a raportului Word
 
     Args:
-        json_path: Calea către fișierul JSON cu datele
-        output_path: Calea unde să salveze raportul (opțional)
-        use_template: Dacă True, folosește un șablon Word
-        template_path: Calea către șablonul Word (necesar dacă use_template=True)
+        json_path: Calea catre fisierul JSON cu datele
+        output_path: Calea unde sa salveze raportul (opțional)
+        use_template: Daca True, foloseste un sablon Word
+        template_path: Calea catre sablonul Word (necesar daca use_template=True)
     """
     if output_path is None:
         output_path = f"raport_medical_{datetime.now().strftime('%Y%m%d_%H%M%S')}.docx"
@@ -249,7 +249,7 @@ def generate_word_report(json_path: str, output_path: str = None, use_template: 
 
     if use_template:
         if template_path is None:
-            print("❌ Trebuie să specifici template_path când use_template=True")
+            print("❌ Trebuie sa specifici template_path cand use_template=True")
             return
         generator.create_report_with_template(json_path, template_path, output_path)
     else:
@@ -264,8 +264,8 @@ if __name__ == "__main__":
     print("GENERATOR RAPOARTE MEDICALE WORD")
     print("=" * 80)
 
-    # Exemplu 1: Creează un raport simplu (fără șablon)
-    print("\n1️⃣  Generare raport simplu (fără șablon)...")
+    # Exemplu 1: Creeaza un raport simplu (fara sablon)
+    print("\n1️⃣  Generare raport simplu (fara sablon)...")
     try:
         generate_word_report(
             json_path="fisa_pacient_medical_structured.json",
@@ -273,15 +273,15 @@ if __name__ == "__main__":
             use_template=False
         )
     except FileNotFoundError:
-        print("⚠️  Fișierul JSON nu a fost găsit. Rulează mai întâi medical_entity_extractor.py")
+        print("⚠️  Fisierul JSON nu a fost gasit. Ruleaza mai intai medical_entity_extractor.py")
 
-    # Exemplu 2: Creează un șablon Word
-    print("\n2️⃣  Generare șablon Word...")
+    # Exemplu 2: Creeaza un sablon Word
+    print("\n2️⃣  Generare sablon Word...")
     generator = MedicalReportGenerator()
     generator.create_template("template_fisa_pacient.docx")
 
-    # Exemplu 3: Folosește șablonul pentru generarea raportului
-    print("\n3️⃣  Generare raport folosind șablonul...")
+    # Exemplu 3: Foloseste sablonul pentru generarea raportului
+    print("\n3️⃣  Generare raport folosind sablonul...")
     try:
         generate_word_report(
             json_path="fisa_pacient_medical_structured.json",
@@ -290,9 +290,9 @@ if __name__ == "__main__":
             template_path="template_fisa_pacient.docx"
         )
     except FileNotFoundError:
-        print("⚠️  Fișierul JSON sau șablonul nu au fost găsite.")
+        print("⚠️  Fisierul JSON sau sablonul nu au fost gasite.")
 
     print("\n" + "=" * 80)
-    print("✅ PROCESARE COMPLETĂ!")
+    print("✅ PROCESARE COMPLETa!")
     print("=" * 80)
 
