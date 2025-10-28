@@ -1,18 +1,18 @@
 # Sistem Inteligent de Automatizare a Fișei Pacientului
 
-## 📋 Descriere
+## Descriere
 
 Sistem complet pentru transformarea înregistrărilor audio medicale în fișe pacient structurate, generat automat în format Word. Implementează întregul pipeline de la recunoaștere vocală la generarea documentelor, conform ghidului de best practices pentru NLP în limba română.
 
-## 🎯 Obiective
+## Obiective
 
 Munca medicilor este plină de provocări, mai ales când trebuie să facă multe task-uri simultan (ecografie + dictare). Acest sistem automatizează:
-- ✅ Transcrierea audio în text (ASR)
-- ✅ Extragerea entităților medicale (NER)
-- ✅ Structurarea datelor în format JSON/FHIR
-- ✅ Generarea automată de rapoarte Word
+- Transcrierea audio în text (ASR)
+- Extragerea entităților medicale (NER)
+- Structurarea datelor în format JSON/FHIR
+- Generarea automată de rapoarte Word
 
-## 🏗️ Arhitectură
+## Arhitectură
 
 ```
 Audio Input (.wav, .ogg, .mp3)
@@ -43,7 +43,7 @@ Audio Input (.wav, .ogg, .mp3)
 Output: Fișa Pacientului (.docx)
 ```
 
-## 📦 Instalare
+## Instalare
 
 ### 1. Creează mediul virtual
 ```bash
@@ -64,7 +64,7 @@ python -c "import torch; print(torch.__version__)"
 python -c "import transformers; print(transformers.__version__)"
 ```
 
-## 🚀 Utilizare
+## Utilizare
 
 ### Varianta 1: Notebook Interactiv (Recomandat pentru dezvoltare)
 
@@ -132,7 +132,7 @@ MIRPR-Voice-To-Text/
 └── template_fisa_pacient.docx             # Șablon Word personalizabil
 ```
 
-## 🔬 Componente Tehnice
+## Componente Tehnice
 
 ### 1. ASR (Automatic Speech Recognition)
 - **Model**: `TransferRapid/whisper-large-v3-turbo_ro`
@@ -146,7 +146,7 @@ MIRPR-Voice-To-Text/
 ### 2. NER (Named Entity Recognition)
 
 #### Metoda 1: Model Generic (dumitrescustefan/bert-base-romanian-ner)
-⚠️ **Limitări**: Nu e antrenat pe date medicale, rezultate sub-optime
+**Limitări**: Nu e antrenat pe date medicale, rezultate sub-optime
 
 #### Metoda 2: Pattern Matching Medical (RECOMANDAT)
 Extrage:
@@ -198,16 +198,16 @@ r'valva\s+aortic[ăa][,:\s]+(\d+)'
 ## 📊 Rezultate & Metrici
 
 ### Performanță ASR
-- ✅ WER (Word Error Rate): ~8-12% pentru vorbire clară
-- ✅ CER (Character Error Rate): ~3-5%
-- ⚠️ Performanță redusă pentru: zgomot de fundal, accente puternice
+- WER (Word Error Rate): ~8-12% pentru vorbire clară
+- CER (Character Error Rate): ~3-5%
+- Performanță redusă pentru: zgomot de fundal, accente puternice
 
 ### Performanță NER (Pattern Matching)
-- ✅ Precizie: ~85-90% pentru măsurători standard
-- ✅ Recall: ~75-80% (depinde de calitatea transcrierii)
-- 💡 **Recomandare**: Fine-tuning model NER pentru acuratețe >95%
+- Precizie: ~85-90% pentru măsurători standard
+- Recall: ~75-80% (depinde de calitatea transcrierii)
+- **Recomandare**: Fine-tuning model NER pentru acuratețe >95%
 
-## 🔄 Flux de Lucru Complet
+## Flux de Lucru Complet
 
 ```mermaid
 graph TD
@@ -224,7 +224,7 @@ graph TD
     J --> K[Final Report .docx]
 ```
 
-## 🛠️ Personalizare
+## Personalizare
 
 ### Adaugă pattern-uri noi pentru entități
 
@@ -264,7 +264,7 @@ Pacient: {{ nume_pacient }}
 {% endfor %}
 ```
 
-## 📈 Următorii Pași (Roadmap)
+## Următorii Pași (Roadmap)
 
 ### Short-term
 - [ ] Fine-tuning model NER pe dataset medical românesc
@@ -283,7 +283,7 @@ Pacient: {{ nume_pacient }}
 - [ ] Integrare cu baze de date medicale (ICD-10, ATC)
 - [ ] Suport multilingv (română + engleză medicală)
 
-## 🐛 Debugging & Troubleshooting
+## Debugging & Troubleshooting
 
 ### Eroare: "LibsndfileError: System error"
 **Cauză**: Fișier audio corupt sau format nesuportat
@@ -312,7 +312,7 @@ model.to(device)
 2. Adaugă pattern-uri noi în `medical_entity_extractor.py`
 3. Consideră fine-tuning model NER
 
-## 📚 Resurse & Referințe
+## Resurse & Referințe
 
 ### Modele folosite
 - Whisper Romanian: [TransferRapid/whisper-large-v3-turbo_ro](https://huggingface.co/TransferRapid/whisper-large-v3-turbo_ro)
@@ -326,16 +326,3 @@ model.to(device)
 - Hugging Face Transformers: https://huggingface.co/docs/transformers
 - python-docx: https://python-docx.readthedocs.io/
 - docxtpl: https://docxtpl.readthedocs.io/
-
-## 📝 Licență
-
-Acest proiect este creat pentru uz educațional și cercetare. Pentru utilizare în producție medicală, consultați reglementările locale (GDPR, HIPAA, etc.).
-
-## 👥 Contribuții
-
-Pentru îmbunătățiri sau bug reports, creați un issue sau pull request.
-
----
-
-**Dezvoltat conform ghidului**: "Ghid Complet pentru Fine-Tuning de Modele Open-Source în Limba Română: De la Recunoaștere Vocală la Extragerea de Entități"
-
