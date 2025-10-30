@@ -43,9 +43,6 @@ def main(audio_path: str = None):
     Args:
         audio_path: Calea catre fisierul audio (optional)
     """
-    print("=" * 100)
-    print(" " * 20 + "SISTEM INTELIGENT DE AUTOMATIZARE A FISEI PACIENTULUI")
-    print("=" * 100)
 
     # Verifică dependențele
     if not check_dependencies():
@@ -72,7 +69,7 @@ def main(audio_path: str = None):
 
         audio_path = str(audio_files[0])
 
-    print(f"\n📁 Fișier audio: {audio_path}")
+    print(f"\nFișier audio: {audio_path}")
 
     # ========== PASUL 1: ASR (Audio → Text) ==========
     print("\n" + "=" * 100)
@@ -135,7 +132,7 @@ def main(audio_path: str = None):
     print("PASUL 2: EXTRACȚIE ENTITATI MEDICALE (NER)")
     print("=" * 100)
 
-    print("\n🔍 Se extrag entitatile medicale folosind pattern matching...")
+    print("\nSe extrag entitatile medicale folosind pattern matching...")
 
     try:
         extractor = MedicalEntityExtractor()
@@ -143,7 +140,7 @@ def main(audio_path: str = None):
 
         print("Extractie completa\n")
 
-        print("📋MASURĂTORI ECOGRAFICE:")
+        print("MASURĂTORI ECOGRAFICE:")
         print("-" * 100)
         if fisa_pacient.masuratori_ecografice:
             for i, masurare in enumerate(fisa_pacient.masuratori_ecografice, 1):
@@ -157,7 +154,7 @@ def main(audio_path: str = None):
             for med in fisa_pacient.medicamente:
                 print(f"   • {med['nume']} - {med['dozaj']} ({med['frecventa']})")
         else:
-            print("   ⚠️  Niciun medicament detectat")
+            print("  ️  Niciun medicament detectat")
 
         print("\nSIMPTOME:")
         print("-" * 100)
@@ -173,7 +170,7 @@ def main(audio_path: str = None):
             for diagnostic in fisa_pacient.diagnostice:
                 print(f"   • {diagnostic}")
         else:
-            print("   ⚠️  Niciun diagnostic detectat")
+            print("     Niciun diagnostic detectat")
 
     except Exception as e:
         print(f"Eroare la extractia entitatilor: {e}")
@@ -189,10 +186,10 @@ def main(audio_path: str = None):
 
     try:
         extractor.save_to_json(fisa_pacient, json_path)
-        print(f"✅ Date salvate in: {json_path}")
+        print(f"Date salvate in: {json_path}")
 
     except Exception as e:
-        print(f"❌ Eroare la salvarea JSON: {e}")
+        print(f"Eroare la salvarea JSON: {e}")
         return
 
     # ========== PASUL 4: Generare Raport Word ==========
@@ -203,29 +200,29 @@ def main(audio_path: str = None):
     raport_path = f"raport_medical_{timestamp}.docx"
 
     try:
-        print("\n📄 Se generează raportul Word...")
+        print("\nSe generează raportul Word...")
         generate_word_report(
             json_path=json_path,
             output_path=raport_path,
             use_template=False
         )
 
-        print(f"\n✅ Raport Word generat: {raport_path}")
+        print(f"\nRaport Word generat: {raport_path}")
 
     except Exception as e:
-        print(f"❌ Eroare la generarea raportului: {e}")
+        print(f"Eroare la generarea raportului: {e}")
         return
 
     # ========== FINALIZARE ==========
     print("\n" + "=" * 100)
-    print("🎉 PIPELINE COMPLET FINALIZAT CU SUCCES!")
+    print("PIPELINE COMPLET FINALIZAT CU SUCCES!")
     print("=" * 100)
 
-    print("\n📊 FIȘIERE GENERATE:")
-    print(f"   ✅ JSON structurat: {json_path}")
-    print(f"   ✅ Raport Word:     {raport_path}")
+    print("\nFIȘIERE GENERATE:")
+    print(f"   JSON structurat: {json_path}")
+    print(f"   Raport Word:     {raport_path}")
 
-    print("\n💡 URMATORII PAȘI:")
+    print("\nURMATORII PAȘI:")
     print("   1. Deschide raportul Word pentru a verifica rezultatele")
     print("   2. Personalizează template-ul pentru branding-ul tău medical")
     print("   3. Consideră fine-tuning model NER pentru acuratețe >95%")
@@ -238,7 +235,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         audio_file = sys.argv[1]
         if not os.path.exists(audio_file):
-            print(f"❌ Fisierul nu exista: {audio_file}")
+            print(f"Fisierul nu exista: {audio_file}")
             sys.exit(1)
         main(audio_file)
     else:

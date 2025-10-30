@@ -131,7 +131,7 @@ class MedicalReportGenerator:
 
         # Salveaza documentul
         doc.save(output_path)
-        print(f"✅ Raport Word generat cu succes: {output_path}")
+        print(f"Raport Word generat cu succes: {output_path}")
 
     def create_report_with_template(self, json_path: str, template_path: str, output_path: str):
         """
@@ -164,7 +164,7 @@ class MedicalReportGenerator:
 
         # Salveaza documentul
         doc.save(output_path)
-        print(f"✅ Raport Word generat din sablon: {output_path}")
+        print(f"Raport Word generat din sablon: {output_path}")
 
     def create_template(self, output_path: str = "template_fisa_pacient.docx"):
         """
@@ -228,8 +228,8 @@ class MedicalReportGenerator:
         doc.add_paragraph('Semnatura medicului')
 
         doc.save(output_path)
-        print(f"✅ sablon creat: {output_path}")
-        print(f"💡 Poți edita acest sablon in Word si apoi il poți folosi cu create_report_with_template()")
+        print(f"sablon creat: {output_path}")
+        print(f"Poți edita acest sablon in Word si apoi il poți folosi cu create_report_with_template()")
 
 
 def generate_word_report(json_path: str, output_path: str = None, use_template: bool = False, template_path: str = None):
@@ -249,7 +249,7 @@ def generate_word_report(json_path: str, output_path: str = None, use_template: 
 
     if use_template:
         if template_path is None:
-            print("❌ Trebuie sa specifici template_path cand use_template=True")
+            print("Trebuie sa specifici template_path cand use_template=True")
             return
         generator.create_report_with_template(json_path, template_path, output_path)
     else:
@@ -265,7 +265,7 @@ if __name__ == "__main__":
     print("=" * 80)
 
     # Exemplu 1: Creeaza un raport simplu (fara sablon)
-    print("\n1️⃣  Generare raport simplu (fara sablon)...")
+    print("\n⃣  Generare raport simplu (fara sablon)...")
     try:
         generate_word_report(
             json_path="fisa_pacient_medical_structured.json",
@@ -273,15 +273,15 @@ if __name__ == "__main__":
             use_template=False
         )
     except FileNotFoundError:
-        print("⚠️  Fisierul JSON nu a fost gasit. Ruleaza mai intai medical_entity_extractor.py")
+        print("  Fisierul JSON nu a fost gasit. Ruleaza mai intai medical_entity_extractor.py")
 
     # Exemplu 2: Creeaza un sablon Word
-    print("\n2️⃣  Generare sablon Word...")
+    print("\n⃣  Generare sablon Word...")
     generator = MedicalReportGenerator()
     generator.create_template("template_fisa_pacient.docx")
 
     # Exemplu 3: Foloseste sablonul pentru generarea raportului
-    print("\n3️⃣  Generare raport folosind sablonul...")
+    print("\n⃣  Generare raport folosind sablonul...")
     try:
         generate_word_report(
             json_path="fisa_pacient_medical_structured.json",
@@ -290,9 +290,9 @@ if __name__ == "__main__":
             template_path="template_fisa_pacient.docx"
         )
     except FileNotFoundError:
-        print("⚠️  Fisierul JSON sau sablonul nu au fost gasite.")
+        print("  Fisierul JSON sau sablonul nu au fost gasite.")
 
     print("\n" + "=" * 80)
-    print("✅ PROCESARE COMPLETa!")
+    print("PROCESARE COMPLETa!")
     print("=" * 80)
 
