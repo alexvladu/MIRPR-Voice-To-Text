@@ -1,3 +1,56 @@
-__pycache__
+# Python
+__pycache__/
+
+# Virtual environments
 venv/
+env/
+venv_old/
+venv_new/
+.venv/
+.ENV/
+.venv_new/
+.venv_old/
+
 uploads/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code
+.vscode/
+
+# Hugging Face / Transformers
+cache/
+*.bin
+*.pt
+*.h5
+*.model
+pytorch_model.bin
+tf_model.h5
+config.json
+training_args.bin
+tokenizer_config.json
+special_tokens_map.json
+*.ckpt
+
+# Datasets
+*.csv
+uploads/MoNERo.txt
+*.conllu
+
+# Logs
+logs/
+*.log
+
+# Hugging Face / Transformers model files
+model_*/
+*.safetensors
+*.bin
+*.pth
+*.pt
+*.json
+tokenizer.json
+config.json
+training_args.bin
+
+whisper_finetuned_ro/

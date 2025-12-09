@@ -1,0 +1,65 @@
+Aorta la inel 8 mm, Aorta la sinusuri 12 mm, Aorta ascendentă 10 mm, Atriu Stâng 13 mm,
+Ventricul Drept 6 mm, Sept Interventricular 3 mm, Ventricul Stâng 20 mm pe 12 mm, Perete
+posterior 4 mm, Fracție de Injecție 60%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+13-6-6, Valva Aortică Viteza maxima 1,2, Valva Pulmonară Viteza maxima 1,1, Valva Tricuspidiană
+Viteza maxima 2,5, Presiune Sistolică în Ventriculul Drept 24 + 5, Arca Aortică Viteza maxima 1,3,
+cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 1,0 mm. (Valoarea
+originală, reprodusă pentru coerență)
+Aorta la inel 7 mm, Aorta la sinusuri 11 mm, Aorta ascendentă 9 mm, Atriu Stâng 12 mm,
+Ventricul Drept 5 mm, Sept Interventricular 3 mm, Ventricul Stâng 19 mm pe 11 mm, Perete
+posterior 4 mm, Fracție de Injecție 56%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+12-5-5, Valva Aortică Viteza maxima 1,0, Valva Pulmonară Viteza maxima 0,9, Valva Tricuspidiană
+Viteza maxima 2,1, Presiune Sistolică în Ventriculul Drept 19 + 4, Arca Aortică Viteza maxima 1,1,
+cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 0,8 mm.
+Aorta la inel 11 mm, Aorta la sinusuri 17 mm, Aorta ascendentă 15 mm, Atriu Stâng 19 mm,
+Ventricul Drept 9 mm, Sept Interventricular 7 mm, Ventricul Stâng 29 mm pe 18 mm, Perete
+posterior 8 mm, Fracție de Injecție 72%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+19-11-11, Valva Aortică Viteza maxima 1,9, Valva Pulmonară Viteza maxima 1,6, Valva
+Tricuspidiană Viteza maxima 3,1, Presiune Sistolică în Ventriculul Drept 42 + 7, Arca Aortică
+Viteza maxima 1,9, cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 1,5
+mm.
+Aorta la inel 6 mm, Aorta la sinusuri 10 mm, Aorta ascendentă 8 mm, Atriu Stâng 11 mm,
+Ventricul Drept 4 mm, Sept Interventricular 2 mm, Ventricul Stâng 16 mm pe 9 mm, Perete
+posterior 3 mm, Fracție de Injecție 48%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+10-3-3, Valva Aortică Viteza maxima 0,8, Valva Pulmonară Viteza maxima 0,7, Valva Tricuspidiană
+Viteza maxima 1,7, Presiune Sistolică în Ventriculul Drept 14 + 3, Arca Aortică Viteza maxima 0,9,
+cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 0,6 mm.
+Aorta la inel 12 mm, Aorta la sinusuri 20 mm, Aorta ascendentă 18 mm, Atriu Stâng 25 mm,
+Ventricul Drept 12 mm, Sept Interventricular 9 mm, Ventricul Stâng 35 mm pe 20 mm, Perete
+posterior 11 mm, Fracție de Injecție 85%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+25-15-15, Valva Aortică Viteza maxima 2,5, Valva Pulmonară Viteza maxima 2,0, Valva
+Tricuspidiană Viteza maxima 4,0, Presiune Sistolică în Ventriculul Drept 60 + 10, Arca Aortică
+Viteza maxima 2,5, cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 2,0
+mm.
+Aorta la inel 9 mm, Aorta la sinusuri 14 mm, Aorta ascendentă 12 mm, Atriu Stâng 15 mm,
+Ventricul Drept 7 mm, Sept Interventricular 4 mm, Ventricul Stâng 23 mm pe 14 mm, Perete
+posterior 5 mm, Fracție de Injecție 61%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+14-7-7, Valva Aortică Viteza maxima 1,4, Valva Pulmonară Viteza maxima 1,2, Valva Tricuspidiană
+Viteza maxima 2,7, Presiune Sistolică în Ventriculul Drept 30 + 5, Arca Aortică Viteza maxima 1,5,
+cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 1,1 mm.
+Aorta la inel 8 mm, Aorta la sinusuri 13 mm, Aorta ascendentă 11 mm, Atriu Stâng 14 mm,
+Ventricul Drept 6 mm, Sept Interventricular 5 mm, Ventricul Stâng 21 mm pe 13 mm, Perete
+posterior 5 mm, Fracție de Injecție 57%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+15-8-8, Valva Aortică Viteza maxima 1,3, Valva Pulmonară Viteza maxima 1,2, Valva Tricuspidiană
+Viteza maxima 2,4, Presiune Sistolică în Ventriculul Drept 26 + 4, Arca Aortică Viteza maxima 1,4,
+cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 1,2 mm.
+Aorta la inel 10 mm, Aorta la sinusuri 16 mm, Aorta ascendentă 14 mm, Atriu Stâng 18 mm,
+Ventricul Drept 8 mm, Sept Interventricular 6 mm, Ventricul Stâng 26 mm pe 15 mm, Perete
+posterior 7 mm, Fracție de Injecție 69%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+18-10-10, Valva Aortică Viteza maxima 1,8, Valva Pulmonară Viteza maxima 1,5, Valva
+Tricuspidiană Viteza maxima 3,0, Presiune Sistolică în Ventriculul Drept 36 + 6, Arca Aortică
+Viteza maxima 1,8, cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 1,4
+mm.
+Aorta la inel 7 mm, Aorta la sinusuri 12 mm, Aorta ascendentă 10 mm, Atriu Stâng 13 mm,
+Ventricul Drept 5 mm, Sept Interventricular 3 mm, Ventricul Stâng 19 mm pe 11 mm, Perete
+posterior 4 mm, Fracție de Injecție 53%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+11-4-4, Valva Aortică Viteza maxima 0,9, Valva Pulmonară Viteza maxima 0,8, Valva Tricuspidiană
+Viteza maxima 1,9, Presiune Sistolică în Ventriculul Drept 16 + 3, Arca Aortică Viteza maxima 1,0,
+cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 0,7 mm.
+Aorta la inel 11 mm, Aorta la sinusuri 17 mm, Aorta ascendentă 15 mm, Atriu Stâng 21 mm,
+Ventricul Drept 10 mm, Sept Interventricular 7 mm, Ventricul Stâng 31 mm pe 19 mm, Perete
+posterior 9 mm, Fracție de Injecție 74%, Timp de Accelerare Pulmonară/Măsuri Arteră Pulmonară
+21-12-12, Valva Aortică Viteza maxima 2,1, Valva Pulmonară Viteza maxima 1,7, Valva
+Tricuspidiană Viteza maxima 3,3, Presiune Sistolică în Ventriculul Drept 48 + 8, Arca Aortică
+Viteza maxima 2,1, cu Persistență de Canal Arterial mic restrictiv cu diametru de aproximativ 1,6
+mm.
